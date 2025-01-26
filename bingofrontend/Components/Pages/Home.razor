@@ -1,0 +1,112 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inherits LayoutComponentBase
+
+<PageTitle>Bingo Page</PageTitle>
+
+<h1>Lifka Bingo</h1>
+
+<div class="modal-overlay" style="@(_isVisible ? "display: block;" : "display: none;")">
+    <div class="modal-content">
+        <h2>BINGOOOOOO</h2>
+        <p>YOU WIN!!!!</p>
+        <button class="buttonmain" @onclick="Close">Close</button>
+    </div>
+</div>
+
+<div class="modal-overlay" style="@(_isVisbleQU ? "display: block;" : "display: none;")">
+    <div class="modal-content">
+        <h2>How to play?</h2>
+        <p>If the person says the word, click it. </p>
+        <p>5 in a row (only diagonal or from top to bottom) means you win!</p>
+        <button class="buttonmain" @onclick="CloseQU">Close</button>
+        <a style="margin: 10px;" href="https://www.flaticon.com/de/kostenlose-icons/fragezeichen" target="_blank">icon credit</a>
+    </div>
+</div>
+
+
+<div class="bingo-container">
+    <div class="bingo-table">
+        <table>
+            @if (randomWords != null && randomWords.Count == 25) {
+                @for (int row = 0; row < 5; row++) {
+                    <tr class="bingo-row">
+                        @for (int col = 0; col < 5; col++) {
+                            int index = row * 5 + col;
+                            <td class="bingo-tablecell">
+                                <button class="bingo-tablebutton@(buttonStates[index] ? "active" : "")"@onclick="@(e => Select(e, index))">@randomWords[index]</button>
+                            </td>
+                        }
+                    </tr>
+                }
+            }
+            else {
+                <tr>
+                    <td colspan="5">Loading...</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="question">
+    <div class="icon">
+        <img src="fragezeichen.png" @onclick="openQuest">
+    </div>
+</div>
+
+
+@code {
+    private bool _bingostate = false;
+    private bool _isVisible;
+    private bool _isVisbleQU = false;
+
+    Random random = new Random();
+    Bingorows bingorows = new Bingorows();
+    
+    //all Buttonindexes saved
+    public List<int>? buttonindex = new List<int>();
+    public List<int>? pressedButton = new List<int>();
+    Dictionary<int, bool> buttonStates = new Dictionary<int, bool>();
+
+    //random words saved
+    List<string>? randomWords = new List<string>();
+    private string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Data", "words.json");
+    
+    protected override void OnInitialized() {
+        //API to rust server :D
+    }
+    private void Select(MouseEventArgs e, int index) {
+        Console.WriteLine("Button pressed");
+        buttonStates[index] = !buttonStates[index];
+        pressedButton!.Add(index);
+        foreach(var test in pressedButton) {
+            Console.WriteLine(test);
+        }
+        checkfBingo();
+        StateHasChanged();
+    }
+    private bool checkfBingo() {
+        List<int[]> rows = new List<int[]> {bingorows.bingorow1, bingorows.bingorow2, bingorows.bingorow3, bingorows.bingorow4, bingorows.bingorow5, bingorows.bingorowside1, bingorows.bignorowside2};
+        foreach (var row in rows) {
+            if (row.All(num => pressedButton!.Contains(num))) {
+                _isVisible = true;
+                return _bingostate = true;
+            } else _bingostate = false;
+        }
+        return _bingostate;
+    }
+    private void Close() {
+        _isVisible = false;
+        StateHasChanged();
+    }
+
+    private void CloseQU() {
+        _isVisbleQU = false;
+        StateHasChanged();
+    }
+    private void openQuest() {
+        _isVisbleQU = true;
+        StateHasChanged();
+    }
+}

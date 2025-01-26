@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\tmp\\bingo\\bingofrontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\bingofrontend.bundle.scp.css",
+      "PackagePath": "staticwebassets\\bingofrontend.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\tmp\\bingo\\bingofrontend\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\tmp\\bingo\\bingofrontend\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\tmp\\bingo\\bingofrontend\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\tmp\\bingo\\bingofrontend\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\tmp\\bingo\\bingofrontend\\wwwroot\\fragezeichen.png",
+      "PackagePath": "staticwebassets\\fragezeichen.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.bingofrontend.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.bingofrontend.props",
+      "PackagePath": "build\\bingofrontend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.bingofrontend.props",
+      "PackagePath": "buildMultiTargeting\\bingofrontend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.bingofrontend.props",
+      "PackagePath": "buildTransitive\\bingofrontend.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
