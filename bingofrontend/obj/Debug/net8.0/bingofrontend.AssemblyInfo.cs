@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bingofrontend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38fd03c1dfe686f93367090365f4f7b24d41ef73")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5cea8c49be7fd79da238b7659a699a4fbcbd8ac8")]
 [assembly: System.Reflection.AssemblyProductAttribute("bingofrontend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bingofrontend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

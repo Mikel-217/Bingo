@@ -17,4 +17,7 @@ public class RustAPI {
         return responce?.recevedData!;
     }
 
+    public async Task SendData(string Data) {
+        
+    }
 }
